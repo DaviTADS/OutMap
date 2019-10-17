@@ -15,6 +15,16 @@ public class Outdoor {
     private float fixedFee;
     private float totalFee;
 
+    public Outdoor(){
+
+        this.latitude = getLatitude();
+        this.longitude = getLongitude();
+        this.rented = false;
+        this.owner = getOwner();
+        this.fixedFee = 20;
+
+    }
+
     public float getTotalFee() {
         return totalFee;
     }
