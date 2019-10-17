@@ -1,0 +1,92 @@
+package br.edu.ifpe.tads.pdm.pratica05;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Outdoor {
+
+    private String latitude;
+    private String longitude;
+    private boolean rented;
+    private Owner owner;
+    private Date dataAluguelInicio;
+    private Date dataAluguelFim;
+    private float fixedFee;
+    private float totalFee;
+
+    public float getTotalFee() {
+        return totalFee;
+    }
+
+    public void setTotalFee(float totalFee) {
+        this.totalFee = totalFee;
+    }
+
+    public float getFixedFee() {
+        return fixedFee;
+    }
+
+    public void setFixedFee(float fixedFee) {
+        this.fixedFee = fixedFee;
+    }
+
+    public Date getDataAluguelInicio() {
+        return dataAluguelInicio;
+    }
+
+    public void setDataAluguelInicio(Date dataAluguelInicio) {
+        this.dataAluguelInicio = dataAluguelInicio;
+    }
+
+    public Date getDataAluguelFim() {
+        return dataAluguelFim;
+    }
+
+    public void setDataAluguelFim(Date dataAluguelFim) {
+        this.dataAluguelFim = dataAluguelFim;
+    }
+
+    private List<Company> companies = new ArrayList<Company>();
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+
+    public boolean isRented() {
+        return rented;
+    }
+
+    public void setRented(boolean rented) {
+        this.rented = rented;
+    }
+}
