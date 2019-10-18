@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Outdoor {
 
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
     private boolean rented;
     private Owner owner;
-    private Date dataAluguelInicio;
-    private Date dataAluguelFim;
-    private float fixedFee;
-    private float totalFee;
+//    private Date dataAluguelInicio;
+//    private Date dataAluguelFim;
+//    private float fixedFee;
+//    private float totalFee;
 
     public Outdoor(){
 
@@ -21,43 +21,43 @@ public class Outdoor {
         this.longitude = getLongitude();
         this.rented = false;
         this.owner = getOwner();
-        this.fixedFee = 20;
+//        this.fixedFee = 20;
 
     }
 
-    public float getTotalFee() {
-        return totalFee;
-    }
+//    public float getTotalFee() {
+//        return totalFee;
+//    }
+//
+//    public void setTotalFee(float totalFee) {
+//        this.totalFee = totalFee;
+//    }
+//
+//    public float getFixedFee() {
+//        return fixedFee;
+//    }
+//
+//    public void setFixedFee(float fixedFee) {
+//        this.fixedFee = fixedFee;
+//    }
+//
+//    public Date getDataAluguelInicio() {
+//        return dataAluguelInicio;
+//    }
+//
+//    public void setDataAluguelInicio(Date dataAluguelInicio) {
+//        this.dataAluguelInicio = dataAluguelInicio;
+//    }
 
-    public void setTotalFee(float totalFee) {
-        this.totalFee = totalFee;
-    }
+//    public Date getDataAluguelFim() {
+//        return dataAluguelFim;
+//    }
+//
+//    public void setDataAluguelFim(Date dataAluguelFim) {
+//        this.dataAluguelFim = dataAluguelFim;
+//    }
 
-    public float getFixedFee() {
-        return fixedFee;
-    }
-
-    public void setFixedFee(float fixedFee) {
-        this.fixedFee = fixedFee;
-    }
-
-    public Date getDataAluguelInicio() {
-        return dataAluguelInicio;
-    }
-
-    public void setDataAluguelInicio(Date dataAluguelInicio) {
-        this.dataAluguelInicio = dataAluguelInicio;
-    }
-
-    public Date getDataAluguelFim() {
-        return dataAluguelFim;
-    }
-
-    public void setDataAluguelFim(Date dataAluguelFim) {
-        this.dataAluguelFim = dataAluguelFim;
-    }
-
-    private List<Company> companies = new ArrayList<Company>();
+//    private List<Company> companies = new ArrayList<Company>();
 
     public Owner getOwner() {
         return owner;
@@ -67,30 +67,29 @@ public class Outdoor {
         this.owner = owner;
     }
 
-    public List<Company> getCompanies() {
-        return companies;
-    }
+//    public List<Company> getCompanies() {
+//        return companies;
+//    }
+//
+//    public void setCompanies(List<Company> companies) {
+//        this.companies = companies;
+//    }
 
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
-    }
-
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
 
     public boolean isRented() {
         return rented;

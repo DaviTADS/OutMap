@@ -40,7 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static int FINE_LOCATION_REQUEST = 0;
     private boolean fine_location;
-
+    private Outdoor outdoor;
 
 
     @Override
@@ -57,12 +57,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //createToolbar();
     }
 
-    private void createToolbar(){
+    private void createToolbar() {
 
         //super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
-         //setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -70,7 +70,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-       // navigationView.setNavigationItemSelectedListener(this);
+        // navigationView.setNavigationItemSelectedListener(this);
     }
 
     private void requestPermission() {
@@ -174,7 +174,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location!=null) {
+                if (location != null) {
                     Toast.makeText(MapsActivity.this, "Localização atual: Latitude = " +
                             location.getLatitude() + " Longitude = " +
                             location.getLongitude(), Toast.LENGTH_SHORT).show();
@@ -182,4 +182,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
+
 }
+
+
+
