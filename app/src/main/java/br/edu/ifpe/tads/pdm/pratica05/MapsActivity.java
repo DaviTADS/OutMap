@@ -10,11 +10,17 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -40,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static int FINE_LOCATION_REQUEST = 0;
     private boolean fine_location;
-    private Outdoor outdoor;
+
 
 
     @Override
@@ -112,22 +118,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         LatLng recife = new LatLng(-8.05, -34.9);
-        LatLng caruaru = new LatLng(-8.27, -35.98);
-        LatLng joaopessoa = new LatLng(-7.12, -34.84);
-
-        mMap.addMarker(new MarkerOptions().
-                position(recife).
-                title("Recife").
-                icon(BitmapDescriptorFactory.defaultMarker(35)));
-        mMap.addMarker(new MarkerOptions().
-                position(caruaru).
-                title("Caruaru").
-                icon(BitmapDescriptorFactory.defaultMarker(120)));
-        mMap.addMarker(new MarkerOptions().
-                position(joaopessoa).
-                title("João Pessoa").
-                icon(BitmapDescriptorFactory.defaultMarker(230)));
-
+//        LatLng caruaru = new LatLng(-8.27, -35.98);
+//        LatLng joaopessoa = new LatLng(-7.12, -34.84);
+//
+//        mMap.addMarker(new MarkerOptions().
+//                position(recife).
+//                title("Recife").
+//                icon(BitmapDescriptorFactory.defaultMarker(35)));
+//        mMap.addMarker(new MarkerOptions().
+//                position(caruaru).
+//                title("Caruaru").
+//                icon(BitmapDescriptorFactory.defaultMarker(120)));
+//        mMap.addMarker(new MarkerOptions().
+//                position(joaopessoa).
+//                title("João Pessoa").
+//                icon(BitmapDescriptorFactory.defaultMarker(230)));
+//
         mMap.moveCamera(CameraUpdateFactory.newLatLng(recife));
 
 
@@ -144,10 +150,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                mMap.addMarker(new MarkerOptions().
-                        position(latLng).
-                        title("Adicionado em " + new Date()).
-                        icon(BitmapDescriptorFactory.defaultMarker(0)));
+
+                Intent i = new Intent(getApplicationContext(),PopActivity.class);
+                startActivity(i);
+
+//                mMap.addMarker(new MarkerOptions().
+//                        position(latLng).
+//                        title("Adicionado em " + new Date()).
+//                        icon(BitmapDescriptorFactory.defaultMarker(0)));
             }
         });
 
