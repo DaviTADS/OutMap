@@ -1,8 +1,6 @@
 package br.edu.ifpe.tads.pdm.pratica05;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+
 
 public class Outdoor {
 
@@ -10,54 +8,20 @@ public class Outdoor {
     private double longitude;
     private boolean rented;
     private Owner owner;
-//    private Date dataAluguelInicio;
-//    private Date dataAluguelFim;
-//    private float fixedFee;
-//    private float totalFee;
 
-    public Outdoor(){
 
-        this.latitude = getLatitude();
-        this.longitude = getLongitude();
+    public Outdoor(){}
+
+    public Outdoor(double latitude, double longitude){
+
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.rented = false;
         this.owner = getOwner();
-//        this.fixedFee = 20;
+
 
     }
 
-//    public float getTotalFee() {
-//        return totalFee;
-//    }
-//
-//    public void setTotalFee(float totalFee) {
-//        this.totalFee = totalFee;
-//    }
-//
-//    public float getFixedFee() {
-//        return fixedFee;
-//    }
-//
-//    public void setFixedFee(float fixedFee) {
-//        this.fixedFee = fixedFee;
-//    }
-//
-//    public Date getDataAluguelInicio() {
-//        return dataAluguelInicio;
-//    }
-//
-//    public void setDataAluguelInicio(Date dataAluguelInicio) {
-//        this.dataAluguelInicio = dataAluguelInicio;
-//    }
-
-//    public Date getDataAluguelFim() {
-//        return dataAluguelFim;
-//    }
-//
-//    public void setDataAluguelFim(Date dataAluguelFim) {
-//        this.dataAluguelFim = dataAluguelFim;
-//    }
-
-//    private List<Company> companies = new ArrayList<Company>();
 
     public Owner getOwner() {
         return owner;
@@ -67,13 +31,6 @@ public class Outdoor {
         this.owner = owner;
     }
 
-//    public List<Company> getCompanies() {
-//        return companies;
-//    }
-//
-//    public void setCompanies(List<Company> companies) {
-//        this.companies = companies;
-//    }
 
     public double getLatitude() {
         return latitude;

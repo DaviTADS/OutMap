@@ -63,21 +63,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //createToolbar();
     }
 
-    private void createToolbar() {
-
-        //super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_drawer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        // navigationView.setNavigationItemSelectedListener(this);
-    }
 
     private void requestPermission() {
 
@@ -151,7 +136,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onMapClick(LatLng latLng) {
 
+                double latitude = latLng.latitude;
+                double longitude = latLng.longitude;
+
+                String lat =  Double.toString(latitude);
+                String lng =  Double.toString(longitude);
+
                 Intent i = new Intent(getApplicationContext(),PopActivity.class);
+
+                i.putExtra("Lat",lat);
+                i.putExtra("Lng",lng);
                 startActivity(i);
 
 //                mMap.addMarker(new MarkerOptions().
@@ -163,6 +157,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
+
+    public void executa(){}
 
     public void currentLocation(View view) {
         FusedLocationProviderClient fusedLocationProviderClient =

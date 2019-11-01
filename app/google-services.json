@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "775261623471",
+    "firebase_url": "https://outmap-3e0af.firebaseio.com",
+    "project_id": "outmap-3e0af",
+    "storage_bucket": "outmap-3e0af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775261623471:android:1c35e8b2bb195b49c0305a",
+        "android_client_info": {
+          "package_name": "br.edu.ifpe.tads.pdm.pratica05"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775261623471-c20sgev8dcot42k7n26glqtd1heo6qgk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.ifpe.tads.pdm.pratica05",
+            "certificate_hash": "3006968bf1d8d5856059b5eea8c87f63e5866dc8"
+          }
+        },
+        {
+          "client_id": "775261623471-l0no0u72ukpit1d53u04olv74otv29g9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdSDQOu00WdeFkh5B14YlmIqei7DSbmtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "775261623471-l0no0u72ukpit1d53u04olv74otv29g9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
