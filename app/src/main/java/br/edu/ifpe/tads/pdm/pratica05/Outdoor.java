@@ -4,8 +4,8 @@ package br.edu.ifpe.tads.pdm.pratica05;
 
 public class Outdoor {
 
-    private double latitude;
-    private double longitude;
+    public double latitude;
+    public double longitude;
     private boolean rented;
     private Owner owner;
 

@@ -23,7 +23,7 @@ import java.util.Date;
 
 public class PopActivity extends Activity {
 
-    private GoogleMap mMap;
+
     Button btn_close;
     Button btn_add;
     String lat;
@@ -66,21 +66,8 @@ public class PopActivity extends Activity {
 
                 Outdoor outdoor = new Outdoor(lat,lng);
                 DatabaseReference drOutdoors = FirebaseDatabase.getInstance().getReference("outdoor");
-                drOutdoors.setValue(outdoor);
-
-                final boolean createMarker = true;
-                final String cm = Boolean.toString(createMarker);
-
-                Intent intent = new Intent();
-                intent.putExtra("message_return", cm);
-                setResult(RESULT_OK, intent);
+                drOutdoors.push().setValue(outdoor);
                 finish();
-//                 LatLng latLng = new LatLng(latitude,longitude);
-//
-//                mMap.addMarker(new MarkerOptions().
-//                        position(latLng).
-//                        title("Adicionado em " + new Date()).
-//                        icon(BitmapDescriptorFactory.defaultMarker(0)));
 
             }
         });

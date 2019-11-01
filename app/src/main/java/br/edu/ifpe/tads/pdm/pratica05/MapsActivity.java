@@ -1,5 +1,7 @@
 package br.edu.ifpe.tads.pdm.pratica05;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -38,6 +41,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
 
@@ -46,6 +54,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static int FINE_LOCATION_REQUEST = 0;
     private boolean fine_location;
+    private final static int REQUEST_CODE_1 = 1;
+    double latitude;
+    double longitude;
+    LatLng latLng;
+
 
 
 
@@ -60,7 +73,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         requestPermission();
 
-        //createToolbar();
+
+
     }
 
 
@@ -103,22 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         LatLng recife = new LatLng(-8.05, -34.9);
-//        LatLng caruaru = new LatLng(-8.27, -35.98);
-//        LatLng joaopessoa = new LatLng(-7.12, -34.84);
-//
-//        mMap.addMarker(new MarkerOptions().
-//                position(recife).
-//                title("Recife").
-//                icon(BitmapDescriptorFactory.defaultMarker(35)));
-//        mMap.addMarker(new MarkerOptions().
-//                position(caruaru).
-//                title("Caruaru").
-//                icon(BitmapDescriptorFactory.defaultMarker(120)));
-//        mMap.addMarker(new MarkerOptions().
-//                position(joaopessoa).
-//                title("João Pessoa").
-//                icon(BitmapDescriptorFactory.defaultMarker(230)));
-//
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(recife));
 
 
@@ -136,8 +135,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onMapClick(LatLng latLng) {
 
-                double latitude = latLng.latitude;
-                double longitude = latLng.longitude;
+                latitude = latLng.latitude;
+                longitude = latLng.longitude;
 
                 String lat =  Double.toString(latitude);
                 String lng =  Double.toString(longitude);
@@ -148,22 +147,51 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 i.putExtra("Lng",lng);
                 startActivity(i);
 
-                Intent backintent = getIntent();
-                String cm = backintent.getStringExtra("message_return");
-                boolean createMarker = Boolean.parseBoolean(cm);
 
-                if(createMarker){
+
+            }
+        });
+
+        DatabaseReference drOutdoor = FirebaseDatabase.
+                getInstance().getReference("outdoor");
+        drOutdoor.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                Outdoor outdoor = dataSnapshot.getValue(Outdoor.class);
+
+                latLng = new LatLng(outdoor.getLatitude(),outdoor.getLongitude());
+
                 mMap.addMarker(new MarkerOptions().
                         position(latLng).
                         title("Adicionado em " + new Date()).
                         icon(BitmapDescriptorFactory.defaultMarker(0)));
-                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
 
 
     }
+
 
 
 
