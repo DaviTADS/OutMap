@@ -63,10 +63,18 @@ public class PopActivity extends Activity {
                 final double lat = latitude;
                 final double lng = longitude;
 
+
                 Outdoor outdoor = new Outdoor(lat,lng);
                 DatabaseReference drOutdoors = FirebaseDatabase.getInstance().getReference("outdoor");
                 drOutdoors.setValue(outdoor);
 
+                final boolean createMarker = true;
+                final String cm = Boolean.toString(createMarker);
+
+                Intent intent = new Intent();
+                intent.putExtra("message_return", cm);
+                setResult(RESULT_OK, intent);
+                finish();
 //                 LatLng latLng = new LatLng(latitude,longitude);
 //
 //                mMap.addMarker(new MarkerOptions().

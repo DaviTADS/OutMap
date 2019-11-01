@@ -148,17 +148,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 i.putExtra("Lng",lng);
                 startActivity(i);
 
+                Intent backintent = getIntent();
+                String cm = backintent.getStringExtra("message_return");
+                boolean createMarker = Boolean.parseBoolean(cm);
+
+                if(createMarker){
                 mMap.addMarker(new MarkerOptions().
                         position(latLng).
                         title("Adicionado em " + new Date()).
                         icon(BitmapDescriptorFactory.defaultMarker(0)));
+                }
+
             }
         });
 
 
     }
 
-    public void executa(){}
+
 
     public void currentLocation(View view) {
         FusedLocationProviderClient fusedLocationProviderClient =
