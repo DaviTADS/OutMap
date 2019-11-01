@@ -148,10 +148,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 i.putExtra("Lng",lng);
                 startActivity(i);
 
-//                mMap.addMarker(new MarkerOptions().
-//                        position(latLng).
-//                        title("Adicionado em " + new Date()).
-//                        icon(BitmapDescriptorFactory.defaultMarker(0)));
+                mMap.addMarker(new MarkerOptions().
+                        position(latLng).
+                        title("Adicionado em " + new Date()).
+                        icon(BitmapDescriptorFactory.defaultMarker(0)));
             }
         });
 
