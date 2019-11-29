@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:background="@color/cardview_light_background"
@@ -27,6 +27,8 @@
         android:text="Adicionar Outdoor neste ponto"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/cardview_dark_background"
+
          />
 
 

@@ -177,7 +177,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addMarker(new MarkerOptions().
                         position(latLng).
                         title("Adicionado em " + new Date()).
-                        icon(BitmapDescriptorFactory.defaultMarker(0)));
+                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
             }
 
             @Override
