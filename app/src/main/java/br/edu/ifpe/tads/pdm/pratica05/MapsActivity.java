@@ -46,7 +46,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -60,8 +63,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     double latitudeM;
     double longitudeM;
     LatLng latLng;
-
-
+    public FirebaseDatabase firebaseDatabase;
+    public DatabaseReference databaseReference;
+    ArrayList<Outdoor> out = new ArrayList<>();
 
 
     @Override
@@ -75,7 +79,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         requestPermission();
 
+        Query drOutdoors = FirebaseDatabase.getInstance().getReference("outdoor");
 
+
+        drOutdoors.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                    Outdoor outdoor =childSnapshot.getValue(Outdoor.class);
+                    out.add(outdoor);
+
+                    //Here you will get the string values what you want to fetch
+                }
+
+//                Outdoor outdoor =dataSnapshot.getValue(Outdoor.class);
+//
+//                String info = outdoor.getInfo();
+//                MtituloOutdoor.setText(info);
+//
+//                String dono = outdoor.getOwner();
+//                MdonoOutdoor.setText(dono);
+//                //Here you will get the string values what you want to fetch
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -132,15 +166,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 LatLng latLng = marker.getPosition();
                 latitudeM = latLng.latitude;
                 longitudeM = latLng.longitude;
+                Outdoor outdoor =(Outdoor) marker.getTag();
 
-                String Mlat = Double.toString(latitudeM);
-                String Mlng = Double.toString(longitudeM);
 
 
                 Intent in = new Intent(getApplicationContext(),PopInfoActivity.class);
 
-                in.putExtra("Lat",Mlat);
-                in.putExtra("Lng",Mlng);
+                in.putExtra("info",outdoor.getInfo());
+                in.putExtra("dono",outdoor.getOwner());
                 startActivity(in);
                 return false;
             }
@@ -172,12 +205,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 Outdoor outdoor = dataSnapshot.getValue(Outdoor.class);
 
+               // dataSnapshot.getKey()
                 latLng = new LatLng(outdoor.getLatitude(),outdoor.getLongitude());
 
                 mMap.addMarker(new MarkerOptions().
                         position(latLng).
                         title("Adicionado em " + new Date()).
-                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))).setTag(outdoor);
             }
 
             @Override

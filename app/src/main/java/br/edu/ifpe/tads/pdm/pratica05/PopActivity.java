@@ -36,6 +36,7 @@ public class PopActivity extends Activity {
     double latitude;
     double longitude;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

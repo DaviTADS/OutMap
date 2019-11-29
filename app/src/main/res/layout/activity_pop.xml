@@ -17,6 +17,9 @@
         android:textStyle="bold"
          />
 
+
+
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="280dp"
@@ -39,7 +42,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@color/cardview_light_background"
-        android:text="Digite um nome para o outdoor"
+        android:text="Digite um nome para o outdoor: "
         android:textStyle="bold"
         android:textColor="@color/cardview_dark_background"
         android:textSize="16dp"
@@ -48,10 +51,11 @@
     <EditText
         android:id="@+id/titulo_outdoor"
         android:layout_width="220dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@color/cardview_light_background"
+        android:hint="Insira um título para o outdoor: "
         android:textAlignment="center"
          />
 
@@ -70,11 +74,13 @@
     <EditText
         android:id="@+id/dono_outdoor"
         android:layout_width="220dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:gravity="left"
         android:background="@color/cardview_light_background"
         android:textAlignment="center"
+        android:hint="Insira os dados relevantes para contato (nome,telefone e email)"
         />
 
 

@@ -23,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class PopInfoActivity extends Activity {
 
     Button btn_close;
@@ -32,10 +34,7 @@ public class PopInfoActivity extends Activity {
     public FirebaseDatabase firebaseDatabase;
     public DatabaseReference databaseReference;
 
-    String lat;
-    String Lng;
-    double latitude;
-    double longitude;
+
 
 
     @Override
@@ -44,7 +43,7 @@ public class PopInfoActivity extends Activity {
         setContentView(R.layout.activity_pop_info);
 
         inicializarComponentes();
-        //inicializarFirebase();
+
 
 
         btn_close.setOnClickListener(new View.OnClickListener() {
@@ -55,34 +54,12 @@ public class PopInfoActivity extends Activity {
         });
 
         Intent in = getIntent();
-         lat =  in.getStringExtra("Lat");
-         Lng =  in.getStringExtra("Lng");
+         String info =  in.getStringExtra("info");
+         String dono =  in.getStringExtra("dono");
 
-          latitude = Double.parseDouble(lat);
-          longitude = Double.parseDouble(Lng);
+          MtituloOutdoor.setText(info);
+          MdonoOutdoor.setText(dono);
 
-        Query drOutdoors = FirebaseDatabase.getInstance().getReference("outdoor").equalTo(latitude);
-
-
-         drOutdoors.addValueEventListener(new ValueEventListener() {
-             @Override
-             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                         Outdoor outdoor =dataSnapshot.getValue(Outdoor.class);
-
-                         String info = outdoor.getInfo();
-                         MtituloOutdoor.setText(info);
-
-                         String dono = outdoor.getOwner();
-                         MdonoOutdoor.setText(dono);
-                         //Here you will get the string values what you want to fetch
-             }
-
-             @Override
-             public void onCancelled(@NonNull DatabaseError databaseError) {
-
-             }
-         });
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -95,7 +72,7 @@ public class PopInfoActivity extends Activity {
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
         params.x = 0;
-        params.y = 0;
+        params.y = 100;
 
         getWindow().setAttributes(params);
     }
