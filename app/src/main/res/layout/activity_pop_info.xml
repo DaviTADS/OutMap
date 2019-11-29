@@ -23,7 +23,11 @@
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
+        android:text="Identificação do Outdoor"
         android:background="@color/cardview_light_background"
+        android:textColor="@color/cardview_dark_background"
+        android:textStyle="bold"
+        android:textAlignment="center"
         />
 
     <TextView
@@ -37,6 +41,10 @@
         android:id="@+id/dono_outdoor_Label"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:text="Informações para aluguel"
+        android:textAlignment="center"
+        android:textColor="@color/cardview_dark_background"
+        android:textStyle="bold"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:background="@color/cardview_light_background"
@@ -49,6 +57,13 @@
         android:layout_marginTop="30dp"
         android:layout_height="50dp"
         android:background="@color/cardview_light_background" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Alugar Outdoor"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"/>
 
 
 </LinearLayout>
