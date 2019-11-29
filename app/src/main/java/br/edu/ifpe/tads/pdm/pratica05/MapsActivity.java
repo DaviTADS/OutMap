@@ -57,6 +57,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final static int REQUEST_CODE_1 = 1;
     double latitude;
     double longitude;
+    double latitudeM;
+    double longitudeM;
     LatLng latLng;
 
 
@@ -124,9 +126,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Toast.makeText(MapsActivity.this,
-                        "Você clicou em " + marker.getTitle(),
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MapsActivity.this,
+//                        "Você clicou em " + marker.getTitle(),
+//                        Toast.LENGTH_SHORT).show();
+                LatLng latLng = marker.getPosition();
+                latitudeM = latLng.latitude;
+                longitudeM = latLng.longitude;
+
+                String Mlat = Double.toString(latitudeM);
+                String Mlng = Double.toString(longitudeM);
+
+
+                Intent in = new Intent(getApplicationContext(),PopInfoActivity.class);
+
+                in.putExtra("Lat",Mlat);
+                in.putExtra("Lng",Mlng);
+                startActivity(in);
                 return false;
             }
         });
@@ -146,9 +161,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 i.putExtra("Lat",lat);
                 i.putExtra("Lng",lng);
                 startActivity(i);
-
-
-
             }
         });
 

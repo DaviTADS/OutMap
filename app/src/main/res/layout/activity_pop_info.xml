@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    android:orientation="vertical"
+    tools:context=".PopInfoActivity">
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:text="X"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/titulo_outdoor_Label"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@color/cardview_light_background"
+        />
+
+    <TextView
+        android:id="@+id/titulo_outdoor_show"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_height="50dp"
+        android:background="@color/cardview_light_background" />
+    <TextView
+        android:id="@+id/dono_outdoor_Label"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@color/cardview_light_background"
+        />
+
+    <TextView
+        android:id="@+id/dono_outdoor_show"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_height="50dp"
+        android:background="@color/cardview_light_background" />
+
+
+</LinearLayout>

@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -26,6 +27,10 @@ public class PopActivity extends Activity {
 
     Button btn_close;
     Button btn_add;
+    String donoOutdoor;
+    String tituloOutdoor;
+    EditText MdonoOutdoor;
+    EditText MtituloOutdoor;
     String lat;
     String Lng;
     double latitude;
@@ -47,6 +52,8 @@ public class PopActivity extends Activity {
 
         btn_close = findViewById(R.id.btn_close);
         btn_add = findViewById(R.id.btn_add);
+        MdonoOutdoor = findViewById(R.id.dono_outdoor);
+        MtituloOutdoor = findViewById(R.id.titulo_outdoor);
 
 
         btn_close.setOnClickListener(new View.OnClickListener() {
@@ -62,9 +69,11 @@ public class PopActivity extends Activity {
 
                 final double lat = latitude;
                 final double lng = longitude;
+                donoOutdoor = MdonoOutdoor.getText().toString();
+                tituloOutdoor = MtituloOutdoor.getText().toString();
 
 
-                Outdoor outdoor = new Outdoor(lat,lng);
+                Outdoor outdoor = new Outdoor(lat,lng,donoOutdoor,tituloOutdoor);
                 DatabaseReference drOutdoors = FirebaseDatabase.getInstance().getReference("outdoor");
                 drOutdoors.push().setValue(outdoor);
                 finish();
@@ -78,12 +87,12 @@ public class PopActivity extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.6),(int)(height*.5));
+        getWindow().setLayout((int)(width*.8),(int)(height*.7));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
         params.x = 0;
-        params.y = -20;
+        params.y = 0;
 
         getWindow().setAttributes(params);
     }
