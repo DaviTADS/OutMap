@@ -64,11 +64,12 @@
             tools:context=".MapsActivity">
 
             <Button
+                android:id="@+id/setfilter"
                 android:theme="@style/AppTheme.Button"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Mostrar apenas outdoors disponíveis"
+                android:text="Mostrar todos os Outdoors na Área"
                 android:padding="10dp"
                 android:layout_marginTop="200dp"
                 android:layout_marginRight = "10dp"
