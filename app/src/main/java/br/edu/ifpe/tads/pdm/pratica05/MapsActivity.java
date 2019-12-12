@@ -160,15 +160,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-//                Toast.makeText(MapsActivity.this,
-//                        "Você clicou em " + marker.getTitle(),
-//                        Toast.LENGTH_SHORT).show();
                 LatLng latLng = marker.getPosition();
                 latitudeM = latLng.latitude;
                 longitudeM = latLng.longitude;
                 Outdoor outdoor =(Outdoor) marker.getTag();
-
-
 
                 Intent in = new Intent(getApplicationContext(),PopInfoActivity.class);
 
@@ -206,12 +201,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Outdoor outdoor = dataSnapshot.getValue(Outdoor.class);
 
                // dataSnapshot.getKey()
-                latLng = new LatLng(outdoor.getLatitude(),outdoor.getLongitude());
+                //if (!outdoor.isRented()) {
+                    latLng = new LatLng(outdoor.getLatitude(), outdoor.getLongitude());
 
-                mMap.addMarker(new MarkerOptions().
-                        position(latLng).
-                        title("Adicionado em " + new Date()).
-                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))).setTag(outdoor);
+                    mMap.addMarker(new MarkerOptions().
+                            position(latLng).
+                            title("Adicionado em " + new Date()).
+                            icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))).setTag(outdoor);
+                //}
             }
 
             @Override

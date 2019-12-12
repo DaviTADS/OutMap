@@ -63,6 +63,19 @@
             map:uiZoomControls="true"
             tools:context=".MapsActivity">
 
+            <Button
+                android:theme="@style/AppTheme.Button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Mostrar apenas outdoors disponíveis"
+                android:padding="10dp"
+                android:layout_marginTop="200dp"
+                android:layout_marginRight = "10dp"
+                android:layout_marginLeft = "10dp"
+                android:background="@drawable/buttoncorners"
+                />
+
         </fragment>
 
         <!--<Button-->

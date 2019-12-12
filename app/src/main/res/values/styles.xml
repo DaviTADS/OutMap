@@ -29,5 +29,19 @@
 
     </style>
 
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">#E91031</item>
+        <item name="android:textColor">#F8F4F4</item>
+    </style>
+
+    <style name="AppTheme.Button2" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">#F8F4F4</item>
+        <item name="android:textColor">#E91031</item>
+    </style>
+
+
+
+
+
 
 </resources>

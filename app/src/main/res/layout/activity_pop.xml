@@ -6,46 +6,52 @@
     android:layout_height="match_parent"
     android:background="@drawable/pop_bg"
     android:orientation="vertical"
-    tools:context=".PopActivity">
+    tools:context=".PopActivity"
+    >
+
+
 
     <Button
+        android:theme="@style/AppTheme.Button2"
         android:id="@+id/btn_close"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="right"
         android:text="X"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
         android:textStyle="bold"
+        android:background = "@drawable/roundedbutton"
          />
-
-
-
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/cardview_light_background"
+        android:background="@drawable/textviewconers"
         android:gravity="center"
-        android:text="Adicionar Outdoor neste ponto"
-        android:textSize="18sp"
+        android:text="Adicionar Outdoor neste ponto?"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/cardview_dark_background"
-
+        android:textColor="@color/color_red"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
          />
 
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@color/cardview_light_background"
-        android:text="Digite um nome para o outdoor: "
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textviewconers"
+        android:text="Digite um título para o outdoor: "
         android:textStyle="bold"
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="@color/color_red"
         android:textSize="16dp"
+        android:padding="10dp"
          />
 
     <EditText
@@ -53,22 +59,24 @@
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@color/cardview_light_background"
-        android:hint="Insira um título para o outdoor: "
-        android:textAlignment="center"
+        android:padding="6dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textviewconers"
+        android:hint="Outdoor avenida recife - 599"
+
          />
 
     <TextView
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:background="@color/cardview_light_background"
-        android:text="Digite o nome da empresa dona do Outdoor"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textviewconers"
+        android:text="Insira os dados relevantes para contato (nome,telefone e email)"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textSize="16dp"
         android:textStyle="bold"
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="@color/color_red"
+        android:padding="10dp"
         />
 
     <EditText
@@ -76,11 +84,11 @@
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:gravity="left"
-        android:background="@color/cardview_light_background"
-        android:textAlignment="center"
-        android:hint="Insira os dados relevantes para contato (nome,telefone e email)"
+        android:padding="6dp"
+        android:background="@drawable/textviewconers"
+        android:hint="Empresa bandeirantes, (81)3559-8569, bandeirantes@gmail.com"
         />
 
 
@@ -89,9 +97,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/buttoncorners2"
+        android:padding="5dp"
         android:text="Adicionar Outdoor"
-         />
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:theme="@style/AppTheme.Button2" />
 
 
 </LinearLayout>

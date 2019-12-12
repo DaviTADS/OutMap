@@ -6,7 +6,7 @@ public class Outdoor {
 
     public double latitude;
     public double longitude;
-    private boolean rented;
+    public boolean rented;
 //    private Owner owner;
     public String owner;
     public String info;

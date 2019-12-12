@@ -13,17 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class PopInfoActivity extends Activity {
 
@@ -31,8 +20,6 @@ public class PopInfoActivity extends Activity {
     public TextView MtituloOutdoor;
     public TextView MdonoOutdoor;
 
-    public FirebaseDatabase firebaseDatabase;
-    public DatabaseReference databaseReference;
 
 
 
@@ -43,8 +30,6 @@ public class PopInfoActivity extends Activity {
         setContentView(R.layout.activity_pop_info);
 
         inicializarComponentes();
-
-
 
         btn_close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,13 +61,6 @@ public class PopInfoActivity extends Activity {
 
         getWindow().setAttributes(params);
     }
-
-//    private void inicializarFirebase() {
-//
-//        FirebaseApp.initializeApp(PopInfoActivity.this);
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//        databaseReference = firebaseDatabase.getReference();
-//    }
 
     private void inicializarComponentes() {
 
