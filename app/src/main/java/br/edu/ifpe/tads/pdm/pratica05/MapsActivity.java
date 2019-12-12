@@ -2,28 +2,18 @@ package br.edu.ifpe.tads.pdm.pratica05;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Filter;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -38,9 +28,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,6 +50,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     double latitudeM;
     double longitudeM;
     LatLng latLng;
+    public static boolean Filter;
     public FirebaseDatabase firebaseDatabase;
     public DatabaseReference databaseReference;
     ArrayList<Outdoor> out = new ArrayList<>();
@@ -78,8 +66,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         requestPermission();
+        //Filter=true;
 
         Query drOutdoors = FirebaseDatabase.getInstance().getReference("outdoor");
+
+        final Button button = findViewById(R.id.setfilter);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+//                if (!isFilter()){
+//                    setFilterTrue();
+//                }else if (isFilter()){
+//                    setFilterFalse();
+//                }
+                if (isFilter()){
+                    setFilterFalse();
+                }else if (!isFilter()){
+                    setFilterTrue();
+                }
+                //setFilterTrue();
+                recreate();
+//                finish();
+//                overridePendingTransition(0, 0);
+//                startActivity(getIntent());
+//                overridePendingTransition(0, 0);
+            }
+        });
 
 
         drOutdoors.addValueEventListener(new ValueEventListener() {
@@ -111,6 +122,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+    }
+
+    public boolean isFilter() {
+        return Filter;
+    }
+
+    public void setFilterTrue() {
+        this.Filter = true;
+    }
+
+    public void setFilterFalse() {
+        this.Filter = false;
     }
 
 
@@ -200,15 +223,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 Outdoor outdoor = dataSnapshot.getValue(Outdoor.class);
 
+
                // dataSnapshot.getKey()
-                //if (!outdoor.isRented()) {
+                if (Filter == Boolean.parseBoolean(null)) {
+                    if (!outdoor.isRented() && Filter == false) {
+                        latLng = new LatLng(outdoor.getLatitude(), outdoor.getLongitude());
+
+                        mMap.addMarker(new MarkerOptions().
+                                position(latLng).
+                                title("Adicionado em " + new Date()).
+                                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))).setTag(outdoor);
+                    }
+                    else if (outdoor.isRented() && Filter == true) {
+                        latLng = new LatLng(outdoor.getLatitude(), outdoor.getLongitude());
+
+                        mMap.addMarker(new MarkerOptions().
+                                position(latLng).
+                                title("Adicionado em " + new Date()).
+                                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))).setTag(outdoor);
+                    }
+                }else{
                     latLng = new LatLng(outdoor.getLatitude(), outdoor.getLongitude());
 
                     mMap.addMarker(new MarkerOptions().
                             position(latLng).
                             title("Adicionado em " + new Date()).
                             icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))).setTag(outdoor);
-                //}
+
+                }
             }
 
             @Override
