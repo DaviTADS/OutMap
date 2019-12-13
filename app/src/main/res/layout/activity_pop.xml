@@ -29,12 +29,12 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/textviewconers"
+        android:background="@drawable/textviewconers2"
         android:gravity="center"
         android:text="Adicionar Outdoor neste ponto?"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/color_red"
+        android:textColor="@color/color_white"
         android:padding="10dp"
         android:layout_marginTop="10dp"
          />
@@ -46,10 +46,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:background="@drawable/textviewconers"
+        android:background="@drawable/textviewconers2"
         android:text="Digite um título para o outdoor: "
         android:textStyle="bold"
-        android:textColor="@color/color_red"
+        android:textColor="@color/color_white"
         android:textSize="16dp"
         android:padding="10dp"
          />
@@ -69,13 +69,13 @@
     <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/textviewconers"
+        android:background="@drawable/textviewconers2"
         android:text="Insira os dados relevantes para contato (nome,telefone e email)"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:textSize="16dp"
         android:textStyle="bold"
-        android:textColor="@color/color_red"
+        android:textColor="@color/color_white"
         android:padding="10dp"
         />
 
